@@ -22,7 +22,6 @@ public class Task2 implements Task {
                                                       int limit) {
 
     return Stream.concat(persons1.stream(), persons2.stream())
-            .distinct()
             .sorted(Comparator.comparing(Person::getCreatedAt))
             .limit(limit)
             .collect(Collectors.toList());
