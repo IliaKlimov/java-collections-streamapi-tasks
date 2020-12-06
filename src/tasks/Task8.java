@@ -52,10 +52,10 @@ public class Task8 implements Task {
   // словарь id персоны -> ее имя
   public Map<Integer, String> getPersonNames(Collection<Person> persons) {
     // Stream api как по мне тут лучше,
-    // но на distinct возможно будет использоваться лишняя память.
     return persons.stream()
-            .distinct()
-            .collect(Collectors.toMap(Person::getId, this::convertPersonToString));
+            .collect(Collectors.toMap(Person::getId, 
+                                      this::convertPersonToString
+                                      (old, new) -> old));
   }
 
   // есть ли совпадающие в двух коллекциях персоны?
